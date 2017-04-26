@@ -1,0 +1,179 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #333441;
+}
+
+.container {
+    margin: 0;
+    width: 100%;
+    .banner {
+        height: 68vh;
+        background-image: url('../Assets/Images/hero-img@2x.png');
+        background-size: 45% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #CA427E;
+        .gl-logo {
+            padding: 30px;
+            padding-left: 40px;
+            height: 100px;
+        }
+        p {
+            float: right;
+            padding: 20px 40px;
+            height: 100px;
+            color: white;        
+        }
+    }
+    & > div:not(#myModal) {
+        margin: 0 12%;
+    }
+}
+
+.search-row {
+    padding: 10px 0;
+    text-align: center;
+    input {
+        height: 45px;
+        width: 42%;
+        padding: 15px;
+        border: 1px solid black;
+        border-radius: 25px;
+    }
+    button {
+        height: 38px;
+        padding: 20px;
+        border: 0;
+        border-radius: 25px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-left: -98px;
+        position: absolute;
+        line-height: 0.5;
+        background-color: #CA427E;
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;        
+    }
+}
+
+*:focus {
+    border: 0;
+    outline: none;
+}
+
+.search-results {
+    min-height: 40vh;
+    background-color: #383A49;
+    color: #474958;
+    text-align: center;
+    &.no-results {
+        background-image: url('../Assets/Images/Magnify@2x.png');
+        background-size: 11%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    h2 {
+        padding-top: 30vh;
+    }
+}
+
+.footer {
+    height: 8vh;
+    color: white;
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    p {
+        display: inline-block;
+    }
+}
+
+.col-25 {
+    width: 25%;
+    display: inline-block;
+}
+
+.box {	
+    height: 260px;
+    margin: 10px 5px;
+    border: 1px solid black;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.box-title {
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 60px;
+    width: calc(100% - 10px);
+    padding: 5px;
+    bottom: 0;
+    position: absolute;
+    line-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    span {
+        cursor: pointer;
+    }
+    span:hover {
+        text-decoration: underline;
+    }
+    img {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    .modal-header {
+        height: 300px;
+        background-size: 100% 100%;
+        padding: 10px;
+    }
+    .modal-list h4 {
+        margin: 10px;
+    }
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 3% auto;
+    border: 1px solid #888;
+    width: 45%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

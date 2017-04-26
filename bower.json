@@ -1,0 +1,20 @@
+{
+  "name": "search_music",
+  "description": "Angular app for searching music",
+  "main": "app.js",
+  "authors": [
+    "Alican Tokdemir <alicantokdemir@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.4"
+  }
+}

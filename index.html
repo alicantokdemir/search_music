@@ -1,0 +1,67 @@
+<!doctype html>
+<html ng-app="searchMusicApp">
+
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl as main">
+    <div class="container">
+        <div class="banner">
+            <img class="gl-logo" src="./Assets/Images/gl-logo@2x.png" />
+            <p>Powered by Spotify</p>
+        </div>
+
+        <div class="search-row">
+            <input type="search" ng-model="searchText" placeholder="{{main.searchText}}" />
+            <button ng-click="main.search(searchText)" type="button">Search</button>
+        </div>
+
+        <div ng-if="!main.results" class="search-results no-results">
+            <h2>Your results will appear here</h2>
+        </div>
+
+        <div ng-if="main.results" class="search-results">
+            <div ng-repeat="result in main.results track by $index" class="col-25">
+                <div class="box" ng-style="{'background-image': result.images.length ? 'url(' + result.images[1].url + ')' : 'url(' + './Assets/Images/Bitmap@2x.png)'}">
+                    <img ng-if="result.type === 'album'" src="./Assets/Images/album-icon@2x.png" />
+                    <img ng-if="result.type === 'artist'" src="./Assets/Images/artist-icon@2x.png" />
+                    <div class="box-title">
+                        <span ng-click="main.selectedResult = result; main.getList(result)" title="{{result.name}}">{{result.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Designed by Geek Label - Powered by Spotify</p>
+        </div>
+
+        <div ng-style="{display: main.selectedResult ? 'block' : 'none'}" id="myModal" class="modal">
+
+            <div class="modal-content">
+                <span ng-click="main.selectedResult = null" class="close">&times;</span>
+                <div class="modal-header" ng-style="{'background-image': main.selectedResult.images.length ? 'url(' + main.selectedResult.images[1].url + ')' : 'url(' + './Assets/Images/Bitmap@2x.png)'}">
+                </div>
+                <div class="modal-list">
+                    <h3>
+                        {{main.selectedResult.name}}
+                    </h3>
+                    <h4>
+                        <span ng-if="main.selectedResult.type === 'artist'">Albums</span>
+                        <span ng-if="main.selectedResult.type === 'album'">Tracks</span>                        
+                    </h4>
+                    <ol>
+                        <li ng-repeat="item in main.items track by $index">{{item.name}}</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
